@@ -12,10 +12,10 @@ export class AppController {
 }
 
 export class UserController {
-constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Get('user')
-  getUser(): string{
+  getUser(): string {
     return this.userService.test();
   }
 }
