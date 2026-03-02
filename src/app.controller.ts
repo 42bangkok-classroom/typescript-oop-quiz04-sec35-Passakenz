@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService, UserService } from './app.service';
 
 @Controller()
 export class AppController {
@@ -8,5 +8,14 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+}
+
+export class UserController {
+constructor(private readonly userService: UserService) {}
+
+  @Get('user')
+  getUser(): string{
+    return this.userService.test();
   }
 }

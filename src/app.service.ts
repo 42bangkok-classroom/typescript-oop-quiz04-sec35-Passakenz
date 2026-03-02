@@ -6,3 +6,9 @@ export class AppService {
     return 'Welcome to NestJs!';
   }
 }
+
+export class UserService {
+  test(): string {
+    return '[]';
+  }
+}
