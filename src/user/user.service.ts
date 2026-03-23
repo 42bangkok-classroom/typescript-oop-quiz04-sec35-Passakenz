@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Get, Injectable } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs/promises';
 import * as path from 'path';
@@ -8,6 +8,8 @@ export class UserService {
   test(): Array<string> {
     return [];
   }
+
+  @Get('/users')
   async findAll(): Promise<IUser[]> {
     try {
       const filePath = path.resolve(process.cwd(), 'data', 'users.json');
