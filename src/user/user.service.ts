@@ -1,4 +1,4 @@
-import { Get, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs/promises';
 import * as path from 'path';
