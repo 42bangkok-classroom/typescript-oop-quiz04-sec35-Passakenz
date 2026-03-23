@@ -12,7 +12,7 @@ export class UserService {
   async findAll(): Promise<Array<IUser>> {
     const filepath = path.join(process.cwd(), 'data', 'users.json');
     const data = await fs.readFile(filepath, 'utf-8');
-    const users: Array<IUser> = JSON.parse(data);
+    const users: IUser[] = JSON.parse(data);
     return users;
   }
 }
