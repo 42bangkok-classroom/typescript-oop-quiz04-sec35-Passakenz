@@ -12,7 +12,7 @@ export class UserService {
     try {
       const filePath = path.join(process.cwd(), 'data', 'users.json');
       const data = await fs.readFile(filePath, 'utf-8');
-      const users = JSON.parse(data);
+      const users: IUser[] = JSON.parse(data);
       return Array.isArray(users) ? (users as IUser[]) : [];
     } catch {
       return [] as IUser[];
