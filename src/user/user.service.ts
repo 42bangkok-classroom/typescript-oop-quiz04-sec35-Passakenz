@@ -8,16 +8,9 @@ export class UserService {
   test(): Array<string> {
     return [];
   }
-
-  @Get('/users')
   async findAll(): Promise<IUser[]> {
-    try {
-      const filePath = path.resolve(process.cwd(), 'data', 'users.json');
-      const data = await fs.readFile(filePath, 'utf-8');
-      const users: IUser[] = JSON.parse(data) as IUser[];
-      return users;
-    } catch {
-      return [] as IUser[];
-    }
+    return await fs.readFile(path.join(__dirname, 'users.json'), 'utf-8').then((data) => {
+      return JSON.parse(data) as IUser[];
+    });
   }
 }
