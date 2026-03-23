@@ -9,8 +9,10 @@ export class UserService {
     return [];
   }
   async findAll(): Promise<IUser[]> {
-    return await fs.readFile(path.join(__dirname, 'users.json'), 'utf-8').then((data) => {
-      return JSON.parse(data) as IUser[];
-    });
+    return await fs
+      .readFile(path.join(__dirname, 'users.json'), 'utf-8')
+      .then((data) => {
+        return JSON.parse(data) as IUser[];
+      });
   }
 }
