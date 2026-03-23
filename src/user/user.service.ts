@@ -10,10 +10,10 @@ export class UserService {
   }
   async findAll(): Promise<IUser[]> {
     try {
-      const filePath = path.resolve(process.cwd(), 'data', 'users.json');
+      const filePath = path.join(process.cwd(), 'data', 'users.json');
       const data = await fs.readFile(filePath, 'utf-8');
-      const users: IUser[] = JSON.parse(data) as IUser[];
-      return Array.isArray(users) ? users : [];
+      const users = JSON.parse(data);
+      return Array.isArray(users) ? (users as IUser[]) : [];
     } catch {
       return [] as IUser[];
     }
