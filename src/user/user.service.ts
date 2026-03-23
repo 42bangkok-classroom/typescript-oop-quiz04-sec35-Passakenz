@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { IUser } from './user.interface';
 
 @Injectable()
 export class UserService {
@@ -6,7 +7,7 @@ export class UserService {
     return [];
   }
 
-  async findAll(): Promise<Array<string>> {
-    return [];
+  async findAll(): Promise<Array<IUser>> {
+    return await [];
   }
 }
