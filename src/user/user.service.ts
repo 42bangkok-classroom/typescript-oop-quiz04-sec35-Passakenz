@@ -12,11 +12,10 @@ export class UserService {
     try {
       const filePath = path.resolve(process.cwd(), 'data', 'users.json');
       const data = await fs.readFile(filePath, 'utf-8');
-      const users: IUser[] = JSON.parse(data);
+      const users: IUser[] = JSON.parse(data) as IUser[];
       return users;
     } catch {
       return [] as IUser[];
     }
   }
 }
-
