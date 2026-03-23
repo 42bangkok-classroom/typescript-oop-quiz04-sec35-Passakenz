@@ -8,15 +8,15 @@ export class UserService {
   test(): Array<string> {
     return [];
   }
-
   async findAll(): Promise<IUser[]> {
     try {
-      const filepath = path.join(process.cwd(), 'data', 'users.json');
-      const data = await fs.readFile(filepath, 'utf-8');
-      const users: IUser[] = JSON.parse(data) as IUser[];
-      return users;
+      const filePath = path.join(process.cwd(), 'data', 'users.json');
+      const data = await fs.readFile(filePath, 'utf-8');
+      const users = JSON.parse(data) as IUser[];
+      return Array.isArray(users) ? users : [];
+
     } catch {
-      return [] as IUser[];
+      return [];
     }
   }
 }
