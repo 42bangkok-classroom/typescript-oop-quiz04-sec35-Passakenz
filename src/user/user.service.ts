@@ -15,7 +15,7 @@ export class UserService {
       const data = await fs.readFile(filepath, 'utf-8');
       const users: IUser[] = JSON.parse(data) as IUser[];
       return users;
-    } catch (error) {
+    } catch {
       return [] as IUser[];
     }
   }
