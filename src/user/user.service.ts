@@ -21,8 +21,12 @@ export class UserService {
       throw new NotFoundException(`User with id ${id} not found`);
     }
 
-    if (!fields || fields.length === 0) {
+    if (!fields) {
       return user;
+    }
+
+    if (fields.length === 0) {
+      return {};
     }
 
     return fields.reduce((acc, field) => {
